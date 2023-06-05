@@ -1,10 +1,9 @@
-import EventsModel from './model/events-model.js';
+import EventsModel from './model/events-model';
 import MenuView from './view/menu-view.js';
-import FilterView from './view/filter-view.js';
-import { render, RenderPosition } from './render.js';
-import SortingView from './view/sorting-view';
+import FilterView from './view/filter-view';
+import { render, RenderPosition } from './framework/render';
 import TripInfoView from './view/trip-info-view';
-import RootPresenter from './presenter/root-presenter.js';
+import RootPresenter from './presenter/root-presenter';
 import AddFormView from './view/add-form-view';
 
 const headerElement = document.querySelector('.page-header');
@@ -23,5 +22,4 @@ const eventsModel = new EventsModel();
 render(new MenuView(), navigation);
 render(new TripInfoView(), tripMainElement, RenderPosition.AFTERBEGIN);
 render(new FilterView(), filters);
-render(new SortingView(), content);
 routePresenter.init(content, eventsModel);
